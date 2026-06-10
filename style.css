@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Welcome Screen */
+.welcome-screen {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    z-index: 1000;
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.welcome-logo {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.welcome-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.welcome-btn {
+    padding: 12px 40px;
+    font-size: 18px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Desktop */
+.desktop {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.taskbar {
+    background: rgba(0, 0, 0, 0.8);
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.taskbar-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.time {
+    font-size: 14px;
+}
+
+.desktop-icons {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    align-content: start;
+}
+
+.icon {
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.icon:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.icon-image {
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.icon p {
+    font-size: 12px;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.window {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.window-header {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+    user-select: none;
+}
+
+.window-close {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 5px;
+}
+
+.window-close:hover {
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 4px;
+}
+
+.window-content {
+    flex: 1;
+    overflow: auto;
+    padding: 15px;
+}
+
+.windows-container {
+    position: relative;
+    flex: 1;
+}
+
+/* Snake Game */
+.snake-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.snake-game canvas {
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background: #111;
+}
+
+.snake-controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.snake-controls button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.snake-controls button:hover {
+    transform: scale(1.05);
+}
+
+.snake-status {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Drawing Pad */
+.drawing-pad {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.drawing-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.drawing-toolbar label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+    font-size: 14px;
+}
+
+.drawing-toolbar input[type="color"],
+.drawing-toolbar input[type="range"] {
+    cursor: pointer;
+}
+
+.drawing-toolbar button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #667eea;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.drawing-toolbar button:hover {
+    transform: scale(1.05);
+}
+
+.drawing-pad canvas {
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    background: white;
+    max-width: 100%;
+    width: 360px;
+    height: 320px;
+    touch-action: none;
+}
+
+.drawing-hint {
+    font-size: 13px;
+    color: #555;
+    text-align: center;
+}

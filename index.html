@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZidaanOS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-content">
+            <div class="welcome-logo">🖥️</div>
+            <h1>Welcome to ZidaanOS</h1>
+            <p>Your personal web-based operating system</p>
+            <button class="welcome-btn" onclick="startWebOS()">Get Started</button>
+        </div>
+    </div>
+
+    <!-- Main Desktop -->
+    <div class="desktop" id="desktop" style="display: none;">
+        <div class="taskbar">
+            <div class="taskbar-content">
+                <span class="time" id="time">12:00</span>
+            </div>
+        </div>
+        
+        <div class="desktop-icons">
+            <div class="icon" onclick="openApp('notepad')">
+                <div class="icon-image">📝</div>
+                <p>Notepad</p>
+            </div>
+                                <div class="icon" onclick="openApp('snake')">
+                <div class="icon-image">🐍</div>
+                <p>Snake</p>
+            </div>
+        
+            <div class="icon" onclick="openApp('calculator')">
+                <div class="icon-image">🧮</div>
+                <p>Calculator</p>
+            </div>
+            <div class="icon" onclick="openApp('settings')">
+                <div class="icon-image">⚙️</div>
+                <p>Settings</p>
+            </div>
+            <div class="icon" onclick="openApp('drawing')">
+                <div class="icon-image">🎨</div>
+                <p>Drawing</p>
+            </div>
+        </div>
+
+        <div class="windows-container" id="windowsContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
