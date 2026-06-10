@@ -132,7 +132,7 @@ function initSnakeGame(id) {
         tileSize: 20,
         headX: 8,
         headY: 8,
-        xVelocity: 0,
+        xVelocity: 1,
         yVelocity: 0,
         snakeParts: [],
         tailLength: 5,
@@ -142,6 +142,7 @@ function initSnakeGame(id) {
         interval: null,
         running: false
     };
+    updateSnakeStatus(id, 'Use arrow keys to move. Press Start to begin.');
     drawSnakeGame(id);
 }
 
@@ -150,7 +151,12 @@ function startSnakeGame(id) {
     if (!game) return;
     activeSnakeGameId = id;
     if (game.running) return;
+    if (game.xVelocity === 0 && game.yVelocity === 0) {
+        game.xVelocity = 1;
+        game.yVelocity = 0;
+    }
     game.running = true;
+    updateSnakeStatus(id, `Score: ${game.score}`);
     game.interval = setInterval(() => stepSnake(id), 100);
 }
 
@@ -166,7 +172,6 @@ function resetSnakeGame(id) {
     if (!game) return;
     pauseSnakeGame(id);
     initSnakeGame(id);
-    updateSnakeStatus(id, 'Use arrow keys to move.');
 }
 
 function stepSnake(id) {
