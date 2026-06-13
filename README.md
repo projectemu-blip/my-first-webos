@@ -1,2 +1,2 @@
 # my-first-webos
-IDK first project
+Making my own personalised webos, so far added a welcome screen, a calculator, a game(snake), and a drawing pad.
